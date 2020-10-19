@@ -1,0 +1,3 @@
+administer myseo:
+  title: 'Administer myseo'
+  restrict access: TRUE

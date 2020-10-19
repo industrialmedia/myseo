@@ -1,0 +1,27 @@
+/**
+ * @file
+ * Commerce toolbar icon styling.
+ */
+
+
+/* Bar styling (first row), currently unused. */
+.toolbar-bar .toolbar-icon-myseo:before {
+  background-image: url("../icons/bebebe/seo.svg");
+}
+
+.toolbar-bar .toolbar-icon-myseo:active:before {
+  background-image: url("../icons/ffffff/seo.svg");
+}
+
+/* Tray styling (second row) */
+.toolbar-tray .toolbar-icon.toolbar-icon-myseo:before {
+  background-image: url("../icons/787878/seo.svg");
+}
+
+.toolbar-tray .toolbar-icon.toolbar-icon-myseo:active:before {
+  background-image: url("../icons/000000/seo.svg");
+}
+
+.toolbar .toolbar-menu {
+  z-index: 9999;
+}

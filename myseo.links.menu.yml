@@ -1,0 +1,36 @@
+myseo:
+  title: 'СЕО'
+  route_name: 'myseo'
+  parent: 'system.admin'
+  description: 'Configure SEO.'
+  weight: -7
+
+myseo.robotstxt:
+  title: 'Robots.txt'
+  route_name: 'myseo.robotstxt'
+  parent: 'myseo'
+  description: 'Содержимое файла robots.txt'
+  weight: -100
+
+myseo.gtm:
+  title: 'GTM'
+  route_name: 'myseo.gtm'
+  parent: 'myseo'
+  description: 'Идентификатор, присвоенный Диспетчером тегов Google (GTM)'
+  weight: -100
+
+myseo.redirect:
+  title: 'Редиректы'
+  route_name: 'myseo.redirect'
+  parent: 'myseo'
+  description: 'Редиректы страница к странице, импорт из CSV-файла'
+  weight: -100
+
+myseo.simplesitemap:
+  title: 'XML sitemap'
+  route_name: 'myseo.simplesitemap'
+  parent: 'myseo'
+  description: 'XML sitemap'
+  weight: -100
+
+

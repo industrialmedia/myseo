@@ -1,0 +1,7 @@
+{
+  "name": "d8i8m8a8/myseo",
+  "description": "myseo base settings.",
+  "type": "drupal-custom-module-release",
+  "minimum-stability": "1.0.0",
+  "license": "MIT"
+}
