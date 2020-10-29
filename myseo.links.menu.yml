@@ -33,4 +33,9 @@ myseo.simplesitemap:
   description: 'XML sitemap'
   weight: -100
 
-
+myseo.html_regions:
+  title: 'Регионы под скрипты'
+  route_name: 'myseo.html_regions'
+  parent: 'myseo'
+  description: 'Регионы под скрипты в html.html.twig'
+  weight: -100

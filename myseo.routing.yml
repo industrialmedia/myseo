@@ -44,4 +44,12 @@ myseo.simplesitemap:
 
 
 
+myseo.html_regions:
+  path: '/admin/seo/html-regions'
+  defaults:
+    _form: '\Drupal\myseo\Form\MyseoHtmlRegionsForm'
+    _title: 'Регионы под скрипты'
+  requirements:
+    _permission: 'administer myseo'
+
 

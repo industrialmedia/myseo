@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Url;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_toolbar_alter().
@@ -45,3 +46,24 @@ function myseo_preprocess_pager(&$variables) {
 }
 
 
+/**
+ * Implements hook_preprocess_html().
+ */
+
+
+function myseo_preprocess_html(&$variables) {
+  // Добавляем html-regions
+  $config = Drupal::config('myseo.html_regions');
+  $myseo_head = !empty($config->get('myseo_head')) ? $config->get('myseo_head') : '';
+  $myseo_body_top = !empty($config->get('myseo_body_top')) ? $config->get('myseo_body_top') : '';
+  $myseo_body_bottom = !empty($config->get('myseo_body_bottom')) ? $config->get('myseo_body_bottom') : '';
+  $variables['myseo_head'] = [
+    '#markup' =>  Markup::create($myseo_head),
+  ];
+  $variables['myseo_body_top'] = [
+    '#markup' =>  Markup::create($myseo_body_top),
+  ];
+  $variables['myseo_body_bottom'] = [
+    '#markup' =>  Markup::create($myseo_body_bottom),
+  ];
+}
