@@ -30,16 +30,23 @@ function myseo_cron() {
 function myseo_preprocess_pager(&$variables) {
   // Remove "?page=0" from pager href
   $route_parameters = isset($variables['pager']['#route_parameters']) ? $variables['pager']['#route_parameters'] : [];
+  /* @var $request \Symfony\Component\HttpFoundation\Request */
+  $request = \Drupal::request();
+  $is_ajax = $request->isXmlHttpRequest();
+  $href = '?';
+  if (!$is_ajax) {
+    $href = Url::fromRoute('<current>', $route_parameters);
+  }
   if (!empty($variables['items']['first']['href']) && $variables['items']['first']['href'] == '?page=0') {
-    $variables['items']['first']['href'] = Url::fromRoute('<current>', $route_parameters);
+    $variables['items']['first']['href'] = $href;
   }
   if (!empty($variables['items']['previous']['href']) && $variables['items']['previous']['href'] == '?page=0') {
-    $variables['items']['previous']['href'] = Url::fromRoute('<current>', $route_parameters);
+    $variables['items']['previous']['href'] = $href;
   }
   if (!empty($variables['items']['pages'])) {
     foreach ($variables['items']['pages'] as $key => $page) {
       if ($page['href'] == '?page=0') {
-        $variables['items']['pages'][$key]['href'] = Url::fromRoute('<current>', $route_parameters);
+        $variables['items']['pages'][$key]['href'] = $href;
       }
     }
   }
@@ -58,12 +65,12 @@ function myseo_preprocess_html(&$variables) {
   $myseo_body_top = !empty($config->get('myseo_body_top')) ? $config->get('myseo_body_top') : '';
   $myseo_body_bottom = !empty($config->get('myseo_body_bottom')) ? $config->get('myseo_body_bottom') : '';
   $variables['myseo_head'] = [
-    '#markup' =>  Markup::create($myseo_head),
+    '#markup' => Markup::create($myseo_head),
   ];
   $variables['myseo_body_top'] = [
-    '#markup' =>  Markup::create($myseo_body_top),
+    '#markup' => Markup::create($myseo_body_top),
   ];
   $variables['myseo_body_bottom'] = [
-    '#markup' =>  Markup::create($myseo_body_bottom),
+    '#markup' => Markup::create($myseo_body_bottom),
   ];
 }
